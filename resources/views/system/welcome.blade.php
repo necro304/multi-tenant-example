@@ -8,7 +8,7 @@
         <img class="text-center img-responsive" src="https://laraveldaily.com/wp-content/uploads/2019/02/simple-laravel-multi-tenancy.png" alt="sistem"><br>
 
 
-        <a href="#" class="btn btn-primary mt-3">Comenzar</a>
+        <a href="{{ route('formRegister.system') }}" class="btn btn-primary mt-3">Comenzar</a>
     </div>
 
 

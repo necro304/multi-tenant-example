@@ -5,13 +5,14 @@ namespace App\System;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Hyn\Tenancy\Traits\UsesTenantConnection;
-
+use Hyn\Tenancy\Traits\UsesSystemConnection;
 
 class User extends Authenticatable
 {
-    use Notifiable, UsesTenantConnection;
+    use Notifiable, UsesSystemConnection;
 
+
+    protected $guarded = 'system';
     /**
      * The attributes that are mass assignable.
      *

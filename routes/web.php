@@ -1,5 +1,5 @@
 <?php
-
+use \Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,17 @@ Route::domain('proyectsimple.test')->group(function () {
     Route::get('/', function () {
         return view('system.welcome');
     });
+    Route::get('/register', 'System\RegisterController@formRegister')->name('formRegister.system');
+    Route::get('/login', 'System\LoginController@ingresar')->name('system.formLogin');
+    Route::post('login', 'System\LoginController@login')->name('system.login');
+    Route::get('logout', 'System\LoginController@logout')->name('system.logout');
+
+    Route::post('register', 'System\RegisterController@register')->name('system.register');
+
+    Route::get('home', 'System\CustomerController@index')->name('system.home')->middleware('auth:system');
+
+    Route::get('/website/{id}', 'System\CustomerController@website')->name('system.website');
+
 
 
 });
@@ -28,10 +39,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('dashboard', function () {
     return view('layouts.master');
 });
-
-
-//Route::group(['middleware' => 'tenancy.enforce'], function (){
-
 
 
 
@@ -85,4 +92,3 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/exportProductMasuk/{id}','ProductMasukController@exportProductMasuk')->name('exportPDF.productMasuk');
 });
 
-//});
