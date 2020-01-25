@@ -36,7 +36,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $url ='https://'. $data['subDomain'];
+        $url ='http://'. $data['subDomain'];
         if ($user){
             return Redirect::to($url);
         }
