@@ -91,7 +91,7 @@ return [
                  *
                  * @info set to null to disable reloading.
                  */
-                'reload' => 'apache2ctl graceful'
+                'reload' => 'sudo apache2ctl graceful'
             ]
         ]
     ],
