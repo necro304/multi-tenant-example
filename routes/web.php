@@ -11,7 +11,7 @@ use \Illuminate\Support\Facades\Route;
 |
 */
 
-Route::domain('proyectsimple.test')->group(function () {
+Route::domain(env('DOMAIN_BASE'))->group(function () {
 
     // Landing Page Routes
     Route::get('/', function () {
