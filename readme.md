@@ -85,7 +85,7 @@ class EnforceTenancy
     ];
 ````
 
-##3. cofiguración
+##3. Cofiguración
 ### Migraciones
     crea una carpeta llamada tenant en la migrations y
     mueve todas las migraciones a esa carpeta exepto las de el paquete tenant
@@ -96,3 +96,34 @@ class EnforceTenancy
 
     Todos los modelos debe tener un trait para saber si pertenecen al sistema
     o al inquilino
+    
+``Hyn\Tenancy\Traits\UsesSystemConnection`` Sistema
+``Hyn\Tenancy\Traits\UsesTenantConnection`` Inquilino
+
+###Servidor
+    el servidor debe ser un vps con LAMP 
+    y los requisitos minimos para montar un proyecto laravel
+    cuando el servidor este listo para un proyeto de laravel normal con dominio
+    y todo funcionando
+    
+    ve a este directorio /etc/sudoers.d
+    y pega esta linea en el archivo q se encuentra alli
+    
+    www-data ALL = (root) NOPASSWD: /etc/init.d/apache2 reload
+    
+    esa linea permite que el usuario www-data pueda recargar el apache
+    
+
+
+##4. Ejemplos
+
+###Rutas
+
+    El archivo de rutas  web.php tiene un grupo con la funcion domain
+    y tiene como parametro el dominio el cual se debe redirijir para ir al 
+    sitio de administracion ejemplo
+    Route::domain("example.com")
+    
+### Ejemplo de creacion de inquilino
+    en el archivo controllers/System/Register se encuentra las funciones
+    necesarias para crear un inquilino a partir de un formulario
